@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Sports Shoes </title>
+</head>
+
+<body>
+
+<div class="container">
+
+
+ <form th:action="@{/users/filter}">
+	    Users Search By Name  <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}"  />
+	    &nbsp;
+	    <input type="submit" value="Search" />
+	    &nbsp;
+	</form>
+	<br></br>
+	
+	
+	<h3>Users List</h3>
+	<hr>
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>User ID</th>
+				<th>User Name</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="theusers : ${UsersList}">
+			
+				<td th:text="${theusers.usid}" />	
+				<td th:text="${theusers.name}" />	
+	
+			</tr>
+		</tbody>		
+	</table>
+	
+</div>
+	
+</body>
+</html>
+
+
+

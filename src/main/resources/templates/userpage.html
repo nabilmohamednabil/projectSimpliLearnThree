@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Sports Shoes </title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Product List</h3>
+	<hr>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Product ID</th>
+				<th>Product Name</th>
+				<th>Product Price</th>
+				<th>Product category</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="theproduct : ${products}">
+			
+				<td th:text="${theproduct.prodid}" />	
+				<td th:text="${theproduct.name}" />	
+				<td th:text="${theproduct.price}" />	
+				<td th:text="${theproduct.category}" />
+				<td>
+					<a th:href="@{/purchase/buy(productId=${theproduct.prodid})}"
+					   class="btn btn-info btn-sm">
+						Buy Product
+					</a>			
+				</td>
+			</tr>
+		</tbody>		
+	</table>
+	<br></br>
+	<a th:href="@{/purchase/payment}"
+	    class="btn btn-info btn-sm">
+		Payment
+	</a>	
+	
+</div>
+	
+</body>
+</html>
+
+
+
